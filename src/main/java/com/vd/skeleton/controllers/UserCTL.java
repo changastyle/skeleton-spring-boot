@@ -5,6 +5,7 @@ import com.vd.skeleton.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,7 +24,7 @@ public class UserCTL
 
     @PostMapping(value = "/")
     @CrossOrigin
-    public User save(@RequestBody User userNvo)
+    public User save(@Valid @RequestBody User userNvo)
     {
         return userRepo.save(userNvo);
     }
